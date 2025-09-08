@@ -55,11 +55,11 @@ Item {
         onTriggered: Players.active?.positionChanged()
     }
 
-    Ref {
-        service: Cava
+    ServiceRef {
+        service: Cava.provider
     }
 
-    Ref {
+    ServiceRef {
         service: BeatTracker
     }
 
@@ -91,10 +91,10 @@ Item {
             id: visualiserBar
 
             required property int modelData
-            readonly property int value: Math.max(1, Math.min(100, Cava.values[modelData]))
+            readonly property real value: Math.max(1e-3, Math.min(1, Cava.values[modelData]))
 
             readonly property real angle: modelData * 2 * Math.PI / Config.services.visualiserBars
-            readonly property real magnitude: value / 100 * Config.dashboard.sizes.mediaVisualiserSize
+            readonly property real magnitude: value * Config.dashboard.sizes.mediaVisualiserSize
             readonly property real cos: Math.cos(angle)
             readonly property real sin: Math.sin(angle)
 

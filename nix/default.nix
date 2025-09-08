@@ -8,7 +8,6 @@
   ddcutil,
   brightnessctl,
   app2unit,
-  cava,
   networkmanager,
   lm_sensors,
   swappy,
@@ -22,6 +21,8 @@
   qt6,
   quickshell,
   aubio,
+  libcava,
+  pipewire,
   xkeyboard-config,
   cmake,
   ninja,
@@ -39,7 +40,6 @@
       ddcutil
       brightnessctl
       app2unit
-      cava
       networkmanager
       lm_sensors
       swappy
@@ -86,7 +86,7 @@
     };
 
     nativeBuildInputs = [cmake ninja pkg-config];
-    buildInputs = [qt6.qtbase qt6.qtdeclarative qt6.qtmultimedia libqalculate aubio];
+    buildInputs = [qt6.qtbase qt6.qtdeclarative qt6.qtmultimedia libqalculate pipewire aubio libcava];
 
     dontWrapQtApps = true;
     cmakeFlags =

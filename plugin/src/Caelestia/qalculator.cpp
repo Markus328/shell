@@ -1,7 +1,8 @@
 #include "qalculator.hpp"
 
-#include <QObject>
 #include <libqalculate/qalculate.h>
+
+namespace caelestia {
 
 Qalculator::Qalculator(QObject* parent)
     : QObject(parent) {
@@ -47,3 +48,5 @@ QString Qalculator::eval(const QString& expr, bool printExpr) const {
 
     return QString::fromStdString(result);
 }
+
+} // namespace caelestia
